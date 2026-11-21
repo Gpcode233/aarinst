@@ -7,7 +7,7 @@ import Lenis from "lenis"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Button } from "@/components/ui/button"
-import { CurrentHero, MapHero, SketchHero, StatementHero } from "@/components/hero-variants"
+import { CurrentHero, MapHero, SketchHero, StatementHero, StudioHero } from "@/components/hero-variants"
 import { SiteFooter, SiteHeader } from "@/components/site-chrome"
 import { programs } from "@/lib/site-content"
 
@@ -27,7 +27,7 @@ const publications = [
 
 export default function Page() {
   const [activeSlide, setActiveSlide] = useState(0)
-  const [heroVariant, setHeroVariant] = useState(3)
+  const [heroVariant, setHeroVariant] = useState(4)
 
   useEffect(() => {
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches
@@ -120,10 +120,11 @@ export default function Page() {
       {heroVariant === 1 && <MapHero programs={programs} activeSlide={activeSlide} setActiveSlide={setActiveSlide} />}
       {heroVariant === 2 && <StatementHero />}
       {heroVariant === 3 && <SketchHero programs={programs} activeSlide={activeSlide} setActiveSlide={setActiveSlide} />}
+      {heroVariant === 4 && <StudioHero programs={programs} activeSlide={activeSlide} setActiveSlide={setActiveSlide} />}
       {process.env.NODE_ENV !== "production" && (
         <div className="hero-variant-switcher" aria-label="Hero prototypes">
           <span>Hero test</span>
-          {[["A", "Carousel"], ["B", "Field map"], ["C", "Statement"], ["D", "Sketch"]].map(([label, name], index) => (
+          {[["A", "Carousel"], ["B", "Field map"], ["C", "Statement"], ["D", "Sketch"], ["E", "Studio"]].map(([label, name], index) => (
             <button type="button" key={label} aria-pressed={heroVariant === index} onClick={() => setHeroVariant(index)}>
               {label} <small>{name}</small>
             </button>

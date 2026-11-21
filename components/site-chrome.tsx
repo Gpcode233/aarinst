@@ -1,6 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import { EmailSignup } from "@/components/email-signup"
 import { contactEmail } from "@/lib/site-content"
 
 export function SiteHeader() {
@@ -42,9 +43,12 @@ export function SiteFooter() {
           <p className="eyebrow">Start a conversation</p>
           <h2>Let&apos;s make the next question count.</h2>
         </div>
-        <a className="footer-email" href={`mailto:${contactEmail}`}>
-          {contactEmail} <span>↗</span>
-        </a>
+        <div className="footer-cta">
+          <EmailSignup className="email-signup-dark" label="Subscribe to research updates" />
+          <a className="footer-email" href={`mailto:${contactEmail}`}>
+            {contactEmail} <span>↗</span>
+          </a>
+        </div>
       </div>
       <div className="footer-bottom">
         <span>© {new Date().getFullYear()} African Academic Research Institute</span>
