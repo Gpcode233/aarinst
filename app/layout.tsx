@@ -1,12 +1,20 @@
-import { Geist, Geist_Mono, Inter, DM_Sans } from "next/font/google"
+import { Geist_Mono, Manrope, Sora } from "next/font/google"
 
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { cn } from "@/lib/utils";
 
-const dmSansHeading = DM_Sans({subsets:['latin'],variable:'--font-heading'});
+const heading = Sora({
+  subsets: ["latin"],
+  variable: "--font-heading",
+  display: "swap",
+})
 
-const inter = Inter({subsets:['latin'],variable:'--font-sans'})
+const body = Manrope({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+})
 
 const fontMono = Geist_Mono({
   subsets: ["latin"],
@@ -22,7 +30,13 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={cn("antialiased", fontMono.variable, "font-sans", inter.variable, dmSansHeading.variable)}
+      className={cn(
+        "antialiased",
+        fontMono.variable,
+        "font-sans",
+        body.variable,
+        heading.variable,
+      )}
     >
       <body>
         <ThemeProvider>{children}</ThemeProvider>
