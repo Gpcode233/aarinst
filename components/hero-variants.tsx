@@ -217,18 +217,6 @@ export function StudioHero({ programs, activeSlide, setActiveSlide }: HeroProps)
         </div>
 
         <div className="studio-visual hero-visual">
-          <svg className="studio-network" viewBox="0 0 400 400" aria-hidden="true">
-            <line x1="70" y1="90" x2="170" y2="40" />
-            <line x1="170" y1="40" x2="300" y2="70" />
-            <line x1="300" y1="300" x2="360" y2="210" />
-            <line x1="40" y1="330" x2="110" y2="370" />
-          </svg>
-          <span className="studio-orb studio-orb-1" aria-hidden="true" />
-          <span className="studio-orb studio-orb-2" aria-hidden="true" />
-          <span className="studio-orb studio-orb-3" aria-hidden="true" />
-          <span className="studio-orb studio-orb-4" aria-hidden="true" />
-          <span className="studio-orb studio-orb-5" aria-hidden="true" />
-
           <Link className="studio-specimen" href={studioSlug(activeProgram)}>
             <span className="studio-specimen-image hero-image-frame">
               <Image
